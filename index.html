@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mba Kael!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF0F5;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23FF69B4" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto;
+        }
+        
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .bloom-animation {
+            animation: bloom 2s ease-in-out forwards;
+        }
+        
+        @keyframes bloom {
+            0% { transform: scale(0.1); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FF69B4;
+            opacity: 0.7;
+            animation: confetti 5s ease-in-out infinite;
+        }
+        
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            100% { transform: translateY(500px) rotate(360deg); opacity: 0; }
+        }
+        
+        .section-card {
+            transition: all 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+        }
+        
+        .photo-placeholder {
+            background: linear-gradient(45deg, #FFB6C1, #FFC0CB, #FF69B4, #FFB6C1);
+            background-size: 300% 300%;
+            animation: gradient 8s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Cooking Mama styles */
+        .ingredient-item {
+            cursor: grab;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+            text-align: center; /* Center content inside ingredient item */
+        }
+        .ingredient-item:active {
+            cursor: grabbing;
+        }
+        .drop-target {
+            min-height: 100px;
+            border: 2px dashed #FF69B4;
+            background-color: #FFF0F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: #FF69B4;
+            border-radius: 0.75rem;
+            padding: 1rem; /* Add padding for better appearance */
+            text-align: center; /* Center text inside drop target */
+        }
+        .drop-target.hover {
+            background-color: #FFC0CB;
+            border-color: #FF69B4;
+        }
+        .drop-target.correct {
+            background-color: #D1FAE5; /* Green for correct */
+            border-color: #10B981;
+        }
+        .drop-target.incorrect {
+            background-color: #FEE2E2; /* Red for incorrect */
+            border-color: #EF4444;
+        }
+
+        /* Message Box Styles */
+        .message-box-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .message-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            position: relative; /* Needed for close button positioning */
+        }
+        .message-box h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF69B4;
+            margin-bottom: 1rem;
+        }
+        .message-box p {
+            color: #4B5563;
+            margin-bottom: 1.5rem;
+        }
+        .message-box button {
+            background-color: #FF69B4;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .message-box button:hover {
+            background-color: #E05697;
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+    <!-- Confetti Background Elements -->
+    <div id="confetti-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-md z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-birthday-cake text-pink-500 text-2xl"></i>
+                <span class="text-xl font-semibold text-pink-600">Mba Kael's Birthday</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#welcome" class="text-pink-600 hover:text-pink-400 transition">Welcome</a>
+                <a href="#poetry" class="text-pink-600 hover:text-pink-400 transition">Poetry</a>
+                <a href="#fishing" class="text-pink-600 hover:text-pink-400 transition">Fishing</a>
+                <a href="#kitchen" class="text-pink-600 hover:text-pink-400 transition">Kitchen</a>
+                <a href="#planner" class="text-pink-600 hover:text-pink-400 transition">Date</a>
+                <a href="#memories" class="text-pink-600 hover:text-pink-400 transition">Memories</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-pink-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-90 backdrop-blur-md">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#welcome" class="text-pink-600 hover:text-pink-400 transition">Welcome</a>
+                <a href="#poetry" class="text-pink-600 hover:text-pink-400 transition">Poetry</a>
+                <a href="#fishing" class="text-pink-600 hover:text-pink-400 transition">Fishing</a>
+                <a href="#kitchen" class="text-pink-600 hover:text-pink-400 transition">Kitchen</a>
+                <a href="#planner" class="text-pink-600 hover:text-pink-400 transition">Date</a>
+                <a href="#memories" class="text-pink-600 hover:text-pink-400 transition">Memories</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Welcome Section -->
+    <section id="welcome" class="min-h-screen flex items-center justify-center pt-20 pb-10 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                        <div class="mb-6">
+                            <h1 class="text-4xl md:text-5xl font-bold text-pink-600 dancing-font mb-4">Happy Birthday Mba Kael!</h1>
+                            <p class="text-gray-700 mb-4">Dear Keisha Yumna Putri,</p>
+                            <p class="text-gray-700 mb-4">Happy Birthday!
+Wishing you a year filled with laughter, good memories, and exciting new adventures. It’s been great sharing moments together, and I’m glad for every bit of fun and laughter we’ve had so far.
+Birthdays are a reminder of how far we’ve come and how many stories are still waiting to be made. I hope this year brings you more reasons to smile, more opportunities to grow, and more adventures to look forward to.
+Enjoy your special day to the fullest! 🎉</p>
+                            <p class="text-gray-700">I hope this virtual gift brings you as much joy as you've brought into my life. Enjoy your special day!</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-gift text-pink-500 mr-3 text-xl"></i>
+                                <div>
+                                    <h3 class="font-semibold text-pink-600">Birthday Countdown</h3>
+                                    <p id="countdown" class="text-gray-700">Loading...</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-lily-pad text-pink-500 mr-3 text-xl"></i>
+                                <div>
+                                    <h3 class="font-semibold text-pink-600">Your Favorite Flower</h3>
+                                    <p class="text-gray-700">White Lily of the Valley</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8 flex flex-col items-center justify-center">
+                        <div class="relative w-full max-w-xs h-64 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://i.imgur.com/OuhQcAW.jpeg" alt="Our Shared Memory" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="inline-block bloom-animation">
+                                <div class="relative">
+                                    <i class="fas fa-seedling text-green-500 text-4xl floating"></i>
+                                    <i class="fas fa-spa text-white absolute top-1 left-1 text-2xl"></i>
+                                </div>
+                            </div>
+                            <p class="mt-2 text-pink-600">A lily blooming just for you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Poetry Section -->
+    <section id="poetry" class="py-16 px-4 bg-pink-50">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-pink-600 dancing-font mb-2">German Poetry Corner</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Generate personalized German birthday poems based on your love for German literature</p>
+            </div>
+            
+            <div class="bg-white bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden p-8">
+                <div class="mb-6">
+                    <label for="poem-theme" class="block text-pink-600 font-medium mb-2">Select a theme:</label>
+                    <select id="poem-theme" class="w-full px-4 py-2 rounded-lg border border-pink-200 focus:ring-2 focus:ring-pink-300 focus:border-pink-400">
+                        <option value="birthday">Birthday</option>
+                        <option value="friendship">Friendship</option>
+                        <option value="virtuallove">Virtual Love</option>
+                        <option value="roblox">Roblox Memories</option>
+                        <option value="mbakael">Mba Kael</option>
+                    </select>
+                </div>
+                
+                <button id="generate-poem" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                    <i class="fas fa-magic mr-2"></i> Generate Poem
+                </button>
+                
+                <div id="poem-result" class="mt-8 p-6 bg-pink-50 rounded-lg border border-pink-200 hidden">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-lg font-semibold text-pink-600">Your Personalized German Poem</h3>
+                        <button id="copy-poem" class="text-pink-500 hover:text-pink-700">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div id="poem-content" class="text-gray-700 italic whitespace-pre-line"></div>
+                    <div class="mt-4 text-right text-sm text-pink-500">
+                        <p>Generated with ❤️ for Mba Kael</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold text-pink-600 mb-4">German Birthday Wishes</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100">
+                            <p class="text-gray-700 font-medium">Alles Gute zum Geburtstag!</p>
+                            <p class="text-gray-500 text-sm">(Happy Birthday!)</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100">
+                            <p class="text-gray-700 font-medium">Herzlichen Glückwunsch!</p>
+                            <p class="text-gray-500 text-sm">(Congratulations!)</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100">
+                            <p class="text-gray-700 font-medium">Geschenk erhalten!</p>
+                            <p class="text-gray-500 text-sm">(Gift received!)</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100">
+                            <p class="text-gray-700 font-medium">Überraschung!</p>
+                            <p class="text-gray-500 text-sm">(Surprise!)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Octopus Fishing Section -->
+    <section id="fishing" class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-pink-600 dancing-font mb-2">Octopus Fishing Adventure</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Based on our shared interest in octopus fishing discussions</p>
+            </div>
+            
+            <div class="bg-white bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden">
+                <div class="p-8">
+                    <div class="flex flex-col md:flex-row items-center mb-8">
+                        <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+                            <h3 class="text-xl font-semibold text-pink-600 mb-3">Antarctic Fishing Simulator</h3>
+                            <p class="text-gray-700 mb-4">Inspired by our Roblox adventures, this mini-game lets you fish for cute octopuses in a pink and Antarctic-themed underwater environment.</p>
+                            <div class="flex space-x-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-fish text-pink-500 mr-2"></i>
+                                    <span class="text-gray-700">Interactive fishing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-robot text-pink-500 mr-2"></i>
+                                    <span class="text-gray-700">Octopus AI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 bg-blue-50 rounded-xl overflow-hidden">
+                            <div class="h-64 flex items-center justify-center relative">
+                                <img src="https://i.imgur.com/jgmR2dZ.jpeg" alt="Cute Octopus" class="w-48 floating">
+                                <div class="absolute bottom-4 left-4 w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-water text-blue-400 text-xl"></i>
+                                </div>
+                                <div class="absolute top-4 right-4 w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-ice-cream text-blue-400 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="start-fishing" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-flex items-center">
+                            <i class="fas fa-gamepad mr-2"></i> Start Fishing Game
+                        </button>
+                    </div>
+                    
+                    <div id="fishing-game" class="hidden mt-8 border-2 border-pink-200 rounded-xl p-4 bg-blue-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="font-semibold text-pink-600">Score: </span>
+                                <span id="score" class="font-bold">0</span>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-pink-600">Time: </span>
+                                <span id="time" class="font-bold">60</span>
+                            </div>
+                        </div>
+                        
+                        <div class="relative h-64 bg-gradient-to-b from-blue-100 to-blue-300 rounded-lg overflow-hidden">
+                            <div id="fishing-rod" class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gray-800 origin-bottom"></div>
+                            <div id="fishing-line" class="absolute top-16 left-1/2 transform -translate-x-1/2 w-px h-0 bg-gray-600"></div>
+                            <div id="fishing-hook" class="absolute top-16 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-700 rounded-full"></div>
+                            
+                            <div id="ocean-floor" class="absolute bottom-0 left-0 right-0 h-16 bg-amber-200"></div>
+                            
+                            <div id="octopus" class="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-16 h-16 transition-all duration-500">
+                                <img src="https://i.imgur.com/jgmR2dZ.jpeg" alt="Octopus" class="w-full h-full">
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 flex justify-center">
+                            <button id="cast-line" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                Cast Line
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Dimsum Kitchen Section -->
+    <section id="kitchen" class="py-16 px-4 bg-pink-50">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-pink-600 dancing-font mb-2">Dimsum Mentai Kitchen</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">A virtual cooking experience for your favorite food</p>
+            </div>
+            
+            <div class="bg-white bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden">
+                <div class="p-8">
+                    <div class="flex flex-col md:flex-row items-center mb-8">
+                        <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+                            <h3 class="text-xl font-semibold text-pink-600 mb-3">Virtual Cooking Experience</h3>
+                            <p class="text-gray-700 mb-4">Let's make your favorite dimsum mentai together! Follow the recipe steps and create a delicious virtual meal.</p>
+                            <div class="flex items-center text-pink-500 mb-2">
+                                <i class="fas fa-utensils mr-2"></i>
+                                <span class="font-medium">Dimsum Mentai Recipe</span>
+                            </div>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                <li>Prepare the dimsum</li>
+                                <li>Make the mentai sauce</li>
+                                <li>Combine and bake</li>
+                                <li>Garnish and serve</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="relative h-64 rounded-xl overflow-hidden">
+                                <img src="https://i.imgur.com/1Mx9zIt.jpeg" alt="Dimsum" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+                                <div class="absolute bottom-0 left-0 p-4 text-white">
+                                    <h4 class="font-bold">Dimsum Mentai</h4>
+                                    <p class="text-sm">Your favorite food</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-pink-100 section-card">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-list-ol text-pink-500 text-2xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-pink-600">Recipe Generator</h4>
+                            </div>
+                            <p class="text-gray-700 text-sm">Get step-by-step instructions for making perfect dimsum mentai every time.</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-pink-100 section-card">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-stopwatch text-pink-500 text-2xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-pink-600">Cooking Timer</h4>
+                            </div>
+                            <p class="text-gray-700 text-sm">Never overcook your food with our precise cooking timer.</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-pink-100 section-card">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-utensil-spoon text-pink-500 text-2xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-pink-600">Food Styling Tips</h4>
+                            </div>
+                            <p class="text-gray-700 text-sm">Learn how to present your dimsum mentai like a professional chef.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <button id="start-cooking" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-flex items-center">
+                            <i class="fas fa-cookie-bite mr-2"></i> Start Cooking Mini-Game
+                        </button>
+                    </div>
+
+                    <!-- Cooking Mama Mini-Game -->
+                    <div id="cooking-minigame" class="hidden mt-8 border-2 border-pink-200 rounded-xl p-4 bg-white">
+                        <h3 class="text-xl font-bold text-pink-600 mb-4 text-center">Let's Cook Dimsum Mentai!</h3>
+                        <div id="cooking-steps-container" class="flex flex-col items-center space-y-4">
+                            <!-- Steps will be loaded here -->
+                        </div>
+                        <div id="cooking-ingredients" class="flex flex-wrap justify-center gap-4 mt-6">
+                            <!-- Ingredients will be loaded here -->
+                        </div>
+                        <div id="cooking-controls" class="mt-6 text-center">
+                            <button id="next-cooking-step-btn" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 hidden">
+                                Next Step
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Date Planner Section -->
+    <section id="planner" class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-pink-600 dancing-font mb-2">Roblox Date Planner</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Plan our special virtual date night together in Roblox</p>
+            </div>
+            
+            <div class="bg-white bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden">
+                <div class="p-8">
+                    <div class="text-center mb-8">
+                        <div class="inline-block bg-pink-100 rounded-full px-6 py-2 mb-4">
+                            <div class="flex items-center justify-center space-x-2">
+                                <i class="fas fa-calendar-day text-pink-500"></i>
+                                <span class="font-semibold text-pink-600">August 10, 2025</span>
+                                <i class="fas fa-clock text-pink-500"></i>
+                                <span class="font-semibold text-pink-600">Evening</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-pink-600 mb-2">Our Virtual Date Night</h3>
+                        <p class="text-gray-700 max-w-2xl mx-auto">Let's celebrate your birthday together in Roblox! Here's our planned itinerary for the evening.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-pink-100 section-card">
+                            <div class="flex items-start mb-4">
+                                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-map-marker-alt text-pink-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-pink-600">Whisper Groove</h4>
+                                    <p class="text-gray-700 text-sm">A cozy and intimate map for a romantic, chill evening.</p>
+                                </div>
+                            </div>
+                            <div class="pl-16">
+                                <div class="flex items-center text-gray-600 text-sm mb-2">
+                                    <i class="fas fa-clock mr-2 text-xs"></i>
+                                    <span>7:00 PM - 8:30 PM</span>
+                                </div>
+                                <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                                    <li>Explore the beautiful scenery</li>
+                                    <li>Take romantic photos together</li>
+                                    <li>Enjoy the peaceful atmosphere</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-pink-100 section-card">
+                            <div class="flex items-start mb-4">
+                                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                    <i class="fas fa-map-marker-alt text-pink-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-pink-600">Aquatic Social Club</h4>
+                                    <p class="text-gray-700 text-sm">A fun and vibrant map for exploring and enjoying together.</p>
+                                </div>
+                            </div>
+                            <div class="pl-16">
+                                <div class="flex items-center text-gray-600 text-sm mb-2">
+                                    <i class="fas fa-clock mr-2 text-xs"></i>
+                                    <span>8:45 PM - 10:00 PM</span>
+                                </div>
+                                <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                                    <li>Explore the aquarium and marine life exhibits</li>
+                                    <li>Join underwater-themed activities</li>
+                                    <li>Take photos by the ocean view</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="confirm-date" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-flex items-center mr-3">
+                            <i class="fas fa-check-circle mr-2"></i> Confirm Date
+                        </button>
+                        <button id="suggest-changes" class="bg-white hover:bg-gray-100 text-pink-600 font-bold py-3 px-6 rounded-lg transition duration-300 inline-flex items-center border border-pink-200">
+                            <i class="fas fa-edit mr-2"></i> Suggest Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Memory Lane Section -->
+    <section id="memories" class="py-16 px-4 bg-pink-50">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-pink-600 dancing-font mb-2">Memory Lane</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">A digital scrapbook of our Roblox memories and shared moments</p>
+            </div>
+            
+            <div class="bg-white bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden">
+                <div class="p-8">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-pink-600 mb-4">Our 2-Month Journey</h3>
+                        <div class="relative h-1 bg-pink-100 rounded-full mb-6">
+                            <div class="absolute top-0 left-0 h-full bg-pink-500 rounded-full" style="width: 100%;"></div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-pink-100 rounded-lg p-4 text-center">
+                                <div class="text-pink-600 font-bold text-2xl mb-1">60+</div>
+                                <div class="text-pink-700 text-sm">Days of friendship</div>
+                            </div>
+                            <div class="bg-pink-100 rounded-lg p-4 text-center">
+                                <div class="text-pink-600 font-bold text-2xl mb-1">100+</div>
+                                <div class="text-pink-700 text-sm">Messages exchanged</div>
+                            </div>
+                            <div class="bg-pink-100 rounded-lg p-4 text-center">
+                                <div class="text-pink-600 font-bold text-2xl mb-1">10+</div>
+                                <div class="text-pink-700 text-sm">Virtual adventures</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-pink-600 mb-4">Photo Gallery</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="rounded-lg overflow-hidden aspect-square">
+                            <img src="https://i.imgur.com/7dT5lIr.png" alt="Our Roblox Memory" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-lg overflow-hidden aspect-square">
+                            <img src="https://i.imgur.com/mHSEoTb.jpeg" alt="Our Roblox Memory" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-lg overflow-hidden aspect-square">
+                            <img src="https://i.imgur.com/OVORdy8.png" alt="Our Roblox Memory" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-lg overflow-hidden aspect-square">
+                            <img src="https://i.imgur.com/N4TFMsN.jpeg" alt="Our Roblox Memory" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-lg overflow-hidden aspect-square">
+                            <img src="https://i.imgur.com/EmTacvZ.png" alt="Our Roblox Memory" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-lg overflow-hidden aspect-square">
+                            <img src="https://i.imgur.com/IJtf3Qp.jpeg" alt="Our Roblox Memory" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-pink-600 mb-4">Timeline of Our Interactions</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-heart text-pink-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-pink-600">First Meeting</h4>
+                                    <p class="text-gray-700 text-sm">June 2025 - Met in Cozy Snowy Cave</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-comment-dots text-pink-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-pink-600">First Conversation</h4>
+                                    <p class="text-gray-700 text-sm">June 2025 - Started talking about octopus fishing</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-gamepad text-pink-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-pink-600">First Virtual Adventure</h4>
+                                    <p class="text-gray-700 text-sm">July 2025 - Explored UPI Together</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-birthday-cake text-pink-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-pink-600">Birthday Celebration</h4>
+                                    <p class="text-gray-700 text-sm">August 2025 - This special virtual gift</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-pink-600 text-white py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold dancing-font mb-2">Happy Birthday Mba Kael!</h2>
+                <p class="opacity-80">A virtual birthday gift from your IT student friend</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="opacity-80">Created with ❤️ for Keisha Yumna Putri</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-pink-700 rounded-full flex items-center justify-center hover:bg-pink-800 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-pink-700 rounded-full flex items-center justify-center hover:bg-pink-800 transition">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-pink-700 rounded-full flex items-center justify-center hover:bg-pink-800 transition">
+                        <i class="fab fa-roblox"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="surprise-btn" class="w-16 h-16 bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-lg flex items-center justify-center transition duration-300 transform hover:scale-110">
+            <i class="fas fa-gift text-2xl"></i>
+        </button>
+    </div>
+    
+    <!-- Surprise Modal -->
+    <div id="surprise-modal" class="message-box-overlay hidden">
+        <div class="message-box">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="p-8 text-center">
+                <div class="w-24 h-24 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-heart text-pink-500 text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-pink-600 dancing-font mb-4">Surprise!</h3>
+                <p class="text-gray-700 mb-6">You've found a secret message! Here's a special German birthday wish just for you:</p>
+                <div class="bg-pink-50 p-4 rounded-lg mb-6">
+                    <p class="font-medium text-pink-600">"Alles Liebe zum Geburtstag, Mba Kael! Möge dein Tag so wunderschön sein wie du."</p>
+                    <p class="text-sm text-gray-500 mt-1">(All the love for your birthday, Mba Kael! May your day be as beautiful as you.)</p>
+                </div>
+                <button id="ok-modal" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300">
+                    Danke! (Thank you!)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Message Box HTML -->
+    <div id="custom-message-box" class="message-box-overlay hidden">
+        <div class="message-box">
+            <button id="close-custom-message-box" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 id="message-title"></h3>
+            <p id="message-content"></p>
+            <button id="message-ok-btn">OK</button>
+        </div>
+    </div>
+    
+    <script>
+        // Function to show custom message box
+        function showMessageBox(title, content) {
+            const msgBoxOverlay = document.getElementById('custom-message-box');
+            document.getElementById('message-title').textContent = title;
+            document.getElementById('message-content').textContent = content;
+            msgBoxOverlay.classList.remove('hidden');
+        }
+
+        // Event listener for custom message box OK button
+        document.getElementById('message-ok-btn').addEventListener('click', function() {
+            document.getElementById('custom-message-box').classList.add('hidden');
+        });
+
+        // Event listener for custom message box close button (X icon)
+        document.getElementById('close-custom-message-box').addEventListener('click', function() {
+            document.getElementById('custom-message-box').classList.add('hidden');
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const birthday = new Date('August 10, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = birthday - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Confetti Animation
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            // Random position
+            const left = Math.random() * 100;
+            confetti.style.left = `${left}%`;
+            
+            // Random size
+            const size = Math.random() * 10 + 5;
+            confetti.style.width = `${size}px`;
+            confetti.style.height = `${size}px`;
+            
+            // Random color
+            const colors = ['#FF69B4', '#FFB6C1', '#FFC0CB', '#FFFFFF'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.backgroundColor = color;
+            
+            // Random animation duration
+            const duration = Math.random() * 3 + 2;
+            confetti.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            const delay = Math.random() * 5;
+            confetti.style.animationDelay = `${delay}s`;
+            
+            container.appendChild(confetti);
+            
+            // Remove confetti after animation completes
+            setTimeout(() => {
+                confetti.remove();
+            }, duration * 1000);
+        }
+        
+        // Create initial confetti
+        for (let i = 0; i < 30; i++) {
+            setTimeout(createConfetti, i * 200);
+        }
+        
+        // Continue creating confetti periodically
+        setInterval(() => {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createConfetti, i * 200);
+            }
+        }, 3000);
+        
+        // Poem Generator
+        const poems = {
+            birthday: `Geburtstagsfreude für dich,\nLiebe Mba Kael, ich wünsche mir,\nDass dein Tag voll Glück und Licht,\nUnd ganz viel Liebe für dich.\n\nMögen alle deine Träume,\nWie Blumen im Wind sich entfalten,\nUnd dieses virtuelle Geschenk,\nDir ein Lächeln ins Gesicht malen.`,
+            friendship: `Freundschaft über Distanz,\nZwei Monate voller Glanz,\nRoblox-Abenteuer, so bunt,\nVerbinden uns in dieser Stund.\n\nOctopus-Gespräche tief,\nErinnerungen, die bleiben,\nMba Kael, mein Freund,\nMit dir will ich weiter schreiben.`,
+            virtuallove: `Virtuelle Liebe, so rein,\nWie ein Stern in der Nacht,\nZwei Seelen, die sich finden,\nOhne sich je gesehen zu haben.\n\nDoch in dieser digitalen Welt,\nFühlt sich mein Herz so schwer,\nDenn Mba Kael, du bist,\nMein besonderes Virtual Love so sehr.`,
+            roblox: `Roblox-Erinnerungen,\nWie Perlen an einer Kette,\nJedes Abenteuer mit dir,\nIst ein Schatz, den ich hüte.\n\nVon der Antarktis bis zum Club,\nJeder Moment so golden,\nMba Kael, mein Spielpartner,\nMit dir wird's nie alten.`,
+            mbakael: `Mba Kael, so besonders,\nWie eine Blume im Schnee,\nDein Lachen, deine Art,\nBerührt mein Herz aufs Neue.\n\nDeutsche Literatur, Dimsum,\nOctopus-Gespräche so lang,\nAll das macht dich aus,\nUnd dafür sing ich diesen Sang.`
+        };
+        
+        document.getElementById('generate-poem').addEventListener('click', function() {
+            const theme = document.getElementById('poem-theme').value;
+            const poemContent = document.getElementById('poem-content');
+            const poemResult = document.getElementById('poem-result');
+            
+            poemContent.textContent = poems[theme];
+            poemResult.classList.remove('hidden');
+            
+            // Scroll to poem
+            poemResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+        
+        document.getElementById('copy-poem').addEventListener('click', function() {
+            const poemContent = document.getElementById('poem-content').textContent;
+            navigator.clipboard.writeText(poemContent).then(() => {
+                const copyBtn = document.getElementById('copy-poem');
+                copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
+            });
+        });
+        
+        // Fishing Game
+        document.getElementById('start-fishing').addEventListener('click', function() {
+            const game = document.getElementById('fishing-game');
+            game.classList.remove('hidden');
+            this.style.display = 'none';
+            
+            // Start timer
+            let time = 60;
+            const timer = setInterval(() => {
+                time--;
+                document.getElementById('time').textContent = time;
+                
+                if (time <= 0) {
+                    clearInterval(timer);
+                    showMessageBox('Game Over!', 'Your final score is ' + document.getElementById('score').textContent);
+                }
+            }, 1000);
+        });
+        
+        let score = 0;
+        let isCasting = false;
+        
+        document.getElementById('cast-line').addEventListener('click', function() {
+            if (isCasting) return;
+            
+            isCasting = true;
+            const line = document.getElementById('fishing-line');
+            const hook = document.getElementById('fishing-hook');
+            const octopus = document.getElementById('octopus');
+            
+            // Cast line
+            line.style.height = '200px';
+            hook.style.top = '216px';
+            
+            // Move octopus near hook
+            setTimeout(() => {
+                octopus.style.bottom = '220px';
+                octopus.style.left = 'calc(50% - 30px)';
+                
+                // Check if caught
+                setTimeout(() => {
+                    if (Math.random() > 0.5) { // 50% chance to catch
+                        score++;
+                        document.getElementById('score').textContent = score;
+                        octopus.style.transform = 'translateX(-50%) scale(0.8)';
+                        showMessageBox('Caught!', 'You caught an octopus!');
+                        
+                        // Animate caught octopus
+                        setTimeout(() => {
+                            octopus.style.bottom = '20px';
+                            octopus.style.left = 'calc(50% - 150px)';
+                            octopus.style.transform = 'translateX(0) scale(0.5)';
+                        }, 500);
+                    } else {
+                        showMessageBox('Missed!', 'The octopus got away!');
+                    }
+                    
+                    // Reset
+                    setTimeout(() => {
+                        line.style.height = '0';
+                        hook.style.top = '16px';
+                        octopus.style.bottom = '20px';
+                        octopus.style.left = '50%';
+                        octopus.style.transform = 'translateX(-50%)';
+                        isCasting = false;
+                    }, 1000);
+                }, 1000);
+            }, 500);
+        });
+        
+        // Surprise Modal
+        document.getElementById('surprise-btn').addEventListener('click', function() {
+            document.getElementById('surprise-modal').classList.remove('hidden');
+        });
+        
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('surprise-modal').classList.add('hidden');
+        });
+        
+        document.getElementById('ok-modal').addEventListener('click', function() {
+            document.getElementById('surprise-modal').classList.add('hidden');
+        });
+        
+        // Date Planner Buttons
+        document.getElementById('confirm-date').addEventListener('click', function() {
+            showMessageBox('Date Confirmed!', 'Looking forward to celebrating with you on August 10, 2025!');
+        });
+        
+        document.getElementById('suggest-changes').addEventListener('click', function() {
+            showMessageBox('Suggestions Noted!', 'Your suggestions have been noted! Let me know what changes you\'d like to make.');
+        });
+        
+        // Start Cooking Button - Modified to start mini-game
+        document.getElementById('start-cooking').addEventListener('click', function() {
+            document.getElementById('cooking-minigame').classList.remove('hidden');
+            this.style.display = 'none'; // Hide the start button
+            currentCookingStep = 0; // Reset game to first step
+            renderCookingStep(currentCookingStep);
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Dimsum Cooking Mini-Game Logic
+        const cookingSteps = [
+            {
+                instruction: "Drag the 'Dimsum Skin' to the 'Work Area'.",
+                ingredients: [{ name: "Dimsum Skin", icon: "🥟", id: "dimsum_skin" }],
+                target: "work_area",
+                targetText: "Work Area"
+            },
+            {
+                instruction: "Drag the 'Chicken Filling' to the 'Dimsum Skin'.",
+                ingredients: [{ name: "Chicken Filling", icon: "🍗", id: "chicken_filling" }],
+                target: "dimsum_skin",
+                targetText: "Dimsum Skin"
+            },
+            {
+                instruction: "Drag the 'Shrimp' to the 'Dimsum Skin'.",
+                ingredients: [{ name: "Shrimp", icon: "🦐", id: "shrimp" }],
+                target: "dimsum_skin",
+                targetText: "Dimsum Skin"
+            },
+            {
+                instruction: "Drag the 'Mentai Sauce' to the 'Assembled Dimsum'.",
+                ingredients: [{ name: "Mentai Sauce", icon: "🥣", id: "mentai_sauce" }],
+                target: "assembled_dimsum",
+                targetText: "Assembled Dimsum"
+            },
+            {
+                instruction: "Drag the 'Cheese' to the 'Dimsum with Mentai'.",
+                ingredients: [{ name: "Cheese", icon: "🧀", id: "cheese" }],
+                target: "dimsum_mentai",
+                targetText: "Dimsum with Mentai"
+            },
+            {
+                instruction: "Drag the 'Torch' to the 'Dimsum with Mentai and Cheese'.",
+                ingredients: [{ name: "Torch", icon: "🔥", id: "torch" }],
+                target: "dimsum_mentai_cheese",
+                targetText: "Dimsum with Mentai and Cheese"
+            }
+        ];
+
+        let currentCookingStep = 0;
+        const cookingStepsContainer = document.getElementById('cooking-steps-container');
+        const cookingIngredientsContainer = document.getElementById('cooking-ingredients');
+        const nextCookingStepBtn = document.getElementById('next-cooking-step-btn');
+
+        nextCookingStepBtn.addEventListener('click', () => {
+            currentCookingStep++;
+            if (currentCookingStep < cookingSteps.length) {
+                renderCookingStep(currentCookingStep);
+            } else {
+                showMessageBox('Congratulations!', 'You have successfully made delicious Dimsum Mentai!');
+                document.getElementById('cooking-minigame').classList.add('hidden');
+                document.getElementById('start-cooking').style.display = 'inline-flex'; // Show start button again
+            }
+        });
+
+        function renderCookingStep(stepIndex) {
+            const step = cookingSteps[stepIndex];
+            cookingStepsContainer.innerHTML = `
+                <p class="text-gray-700 text-lg font-semibold mb-4">${step.instruction}</p>
+                <div id="current-target" class="drop-target w-full p-8 rounded-lg mb-4" data-target="${step.target}">
+                    ${step.targetText}
+                </div>
+            `;
+            
+            cookingIngredientsContainer.innerHTML = '';
+            step.ingredients.forEach(ing => {
+                const ingredientDiv = document.createElement('div');
+                ingredientDiv.className = 'ingredient-item p-4 bg-pink-100 rounded-lg shadow-sm flex flex-col items-center';
+                ingredientDiv.draggable = true;
+                ingredientDiv.dataset.ingredientId = ing.id;
+                ingredientDiv.innerHTML = `<span class="text-4xl mb-2">${ing.icon}</span><span class="text-sm font-medium">${ing.name}</span>`;
+                cookingIngredientsContainer.appendChild(ingredientDiv);
+
+                ingredientDiv.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', e.target.closest('.ingredient-item').dataset.ingredientId);
+                });
+            });
+
+            const currentTarget = document.getElementById('current-target');
+            currentTarget.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                currentTarget.classList.add('hover');
+            });
+            currentTarget.addEventListener('dragleave', () => {
+                currentTarget.classList.remove('hover');
+            });
+            currentTarget.addEventListener('drop', (e) => {
+                e.preventDefault();
+                currentTarget.classList.remove('hover');
+                const droppedIngredientId = e.dataTransfer.getData('text/plain');
+                if (droppedIngredientId === step.ingredients[0].id) {
+                    currentTarget.classList.add('correct');
+                    showMessageBox('Correct!', 'Great job! Proceed to the next step.');
+                    nextCookingStepBtn.classList.remove('hidden');
+                } else {
+                    currentTarget.classList.add('incorrect');
+                    showMessageBox('Incorrect!', 'That\'s not the right ingredient. Try again!');
+                    setTimeout(() => {
+                        currentTarget.classList.remove('incorrect');
+                    }, 1000); // Remove incorrect feedback after 1 second
+                }
+            });
+
+            nextCookingStepBtn.classList.add('hidden'); // Hide next button until correct action
+        }
+    </script>
+</body>
+</html>
